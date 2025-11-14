@@ -1,0 +1,41 @@
+name: Pytest - Playwright Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  ui_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          python -m playwright install
+
+      - name: Run tests
+        run: |
+          mkdir -p reports/html
+          pytest -q --html=reports/html/report.html --self-contained-html || true
+
+      - name: Upload HTML report
+        uses: actions/upload-artifact@v4
+        with:
+          name: html-report
+          path: reports/html/report.html
+
+      - name: Upload artifacts (screenshots & logs)
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-artifacts
+          path: reports

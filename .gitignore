@@ -1,0 +1,59 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# ---- Virtual Environment ----
+venv/
+env/
+.venv/
+
+# ---- Logs and Reports ----
+*.log
+logs/
+reports/
+*.html
+
+# ---- Cache Files ----
+.pytest_cache/
+.cache/
+*.mo
+*.pot
+
+# ---- IDE / Editor Files ----
+#pycharm/Intellij
+
+.idea/
+*.iml
+#VS code
+.vscode/
+.idea/
+*.swp
+*~
+
+# ---- Environment Files ----
+.env
+*.env
+
+# ---- OS-specific Files ----
+.DS_Store
+Thumbs.db
+
+# ---- Selenium Drivers (optional if using WebDriverManager) ----
+*.exe
+*.dmg
+chromedriver*
+geckodriver*
+
+# ---- Test Artifacts ----
+screenshots/
+test-output/
+coverage/
+htmlcov/
+
+# ---- Dependencies Lock Files (optional) ----
+poetry.lock
+pipfile.lock
+
